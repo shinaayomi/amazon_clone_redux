@@ -30,7 +30,7 @@ const Header = () => {
           <input
             className="w-full h-full rounded-md px-2 placeholder:text-sm text-base text-black border-[3px] border-transparent outline-none focus-visible:border-amazon_yellow"
             type="text"
-            placeholder="Search on Adebisi amazon products"
+            placeholder="Search for Adebisi amazon products"
           />
           <span className="w-12 h-full bg-amazon_yellow text-black text-2xl flex justify-center items-center absolute right-0 rounded-tr-md rounded-br-md">
             <HiOutlineSearch />
