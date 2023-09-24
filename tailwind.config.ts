@@ -18,6 +18,15 @@ const config: Config = {
         lgl: "1024px",
         xl: "1080px"
       },
+      colors:{
+        amazon_blue: "#131921",
+        amazon_light: "#232F3E",
+        amazon_yellow: "#febd69",
+        lightText: "#ccc"
+      },
+      fontFamily:{
+        bodyFont: ["Poppins","sans-serif"]
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
