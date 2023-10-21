@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Footer from "@/components/Footer";
 import BottomHeader from "@/components/header/BottomHeader";
 import Header from "@/components/header/Header";
@@ -5,7 +6,9 @@ import Header from "@/components/header/Header";
 export default function Home() {
   return (
     <main>
-      <section className="bg-gray-300 py-10">This is the home page</section>
+      <div className="max-w-screen-2xl max-auto">
+        <Banner />
+      </div>
     </main>
     // <main
     //   className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
