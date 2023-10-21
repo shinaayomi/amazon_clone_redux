@@ -17,13 +17,13 @@ const Banner = () => {
         interval={3000}
       >
         <div>
-          <Image src={sliderImg_1} alt="slideImg" />
+          <Image src={sliderImg_1} alt="slideImg" priority />
         </div>
         <div>
-          <Image src={sliderImg_2} alt="slideImg" />
+          <Image src={sliderImg_2} alt="slideImg" priority />
         </div>
         <div>
-          <Image src={sliderImg_3} alt="slideImg" />
+          <Image src={sliderImg_3} alt="slideImg" priority />
         </div>
       </Carousel>{" "}
       <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20"></div>
