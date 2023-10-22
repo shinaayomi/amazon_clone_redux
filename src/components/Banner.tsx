@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import sliderImg_1 from "../images/slider/sliderImg_1.jpg";
 import sliderImg_2 from "../images/slider/sliderImg_2.jpg";
 import sliderImg_3 from "../images/slider/sliderImg_3.jpg";
+import sliderImg_4 from "../images/slider/sliderImg_4.jpg";
 import Image from "next/image";
 
 const Banner = () => {
@@ -25,7 +26,10 @@ const Banner = () => {
         <div>
           <Image src={sliderImg_3} alt="slideImg" priority />
         </div>
-      </Carousel>{" "}
+        <div>
+          <Image src={sliderImg_4} alt="slideImg" priority />
+        </div>
+      </Carousel>
       <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20"></div>
     </div>
   );
