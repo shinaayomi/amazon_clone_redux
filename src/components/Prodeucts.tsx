@@ -6,7 +6,6 @@ import { FaHeart } from "react-icons/fa";
 import FormattedPrice from "./Formattedprice";
 
 const Products = ({ productData }: any) => {
-  console.log("__", productData);
   return (
     <div className="w-full px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
       {productData.map(
