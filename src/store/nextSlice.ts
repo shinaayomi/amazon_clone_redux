@@ -24,49 +24,67 @@ export const nextSlice = createSlice({
       const existingProduct = state.productData.find(
         (item: StoreProducts) => item._id === action.payload._id
       );
-      if(existingProduct) {
-        existingProduct.quantity += action.payload.quantity
-      }else{
-        state.productData.push(action.payload)
+      if (existingProduct) {
+        existingProduct.quantity += action.payload.quantity;
+      } else {
+        state.productData.push(action.payload);
       }
     },
     addToFavourite: (state, action) => {
-      const existingProduct = state.favouriteData.find((item: StoreProducts)=> item._id === action.payload._id);
-      if(existingProduct) {
+      const existingProduct = state.favouriteData.find(
+        (item: StoreProducts) => item._id === action.payload._id
+      );
+      if (existingProduct) {
         existingProduct.quantity += action.payload.quantity;
       } else {
         state.favouriteData.push(action.payload);
       }
     },
     increaseQuantity: (state, action) => {
-    const existingProduct = state.favouriteData.find((item: StoreProducts)=> item._id === action.payload._id)
-    existingProduct && existingProduct.quantity++;
+      const existingProduct = state.favouriteData.find(
+        (item: StoreProducts) => item._id === action.payload._id
+      );
+      existingProduct && existingProduct.quantity++;
     },
-    decreaseQuantity: (state, action)=> {
-      const existingProduct = state.favouriteData.find((item: StoreProducts)=> item._id === action.payload._id)
-      if(existingProduct?.quantity ===1) {
+    decreaseQuantity: (state, action) => {
+      const existingProduct = state.favouriteData.find(
+        (item: StoreProducts) => item._id === action.payload._id
+      );
+      if (existingProduct?.quantity === 1) {
         existingProduct.quantity = 1;
-      }else {
+      } else {
         existingProduct!.quantity--;
       }
     },
-    deleteProduct: (state, action)=> {
-      state.productData = state.productData.filter((item)=> item._id !== action.payload)
+    deleteProduct: (state, action) => {
+      state.productData = state.productData.filter(
+        (item) => item._id !== action.payload
+      );
     },
-    resetCart: (state)=> {
+    resetCart: (state) => {
       state.productData = [];
     },
-    addUser: (state, action)=> {
-      state.userInfo = action.payload
+    addUser: (state, action) => {
+      state.userInfo = action.payload;
     },
-    removeUser: (state)=> {
+    removeUser: (state) => {
       state.userInfo = null;
     },
-    setAllProducts: (state, action)=> {
-      state.allProducts = action.payload
-    }
+    setAllProducts: (state, action) => {
+      state.allProducts = action.payload;
+    },
   },
 });
 
-export const { addToCart, addToFavourite, increaseQuantity, decreaseQuantity, deleteProduct, resetCart, addUser, removeUser, setAllProducts } = nextSlice.actions;
+export const {
+  addToCart,
+  addToFavourite,
+  increaseQuantity,
+  decreaseQuantity,
+  deleteProduct,
+  resetCart,
+  addUser,
+  removeUser,
+  setAllProducts,
+} = nextSlice.actions;
 export default nextSlice.reducer;
