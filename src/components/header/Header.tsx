@@ -5,8 +5,13 @@ import { SlLocationPin } from "react-icons/sl";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { productData, favouriteData } = useSelector(
+    (state: any) => state.next
+  );
+  console.log(productData);
   return (
     <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
       <div className="w-full h-full mx-auto inline-flex items-center justify-between gap-1 mdl:gap-3 px-4">
