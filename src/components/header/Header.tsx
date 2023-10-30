@@ -7,6 +7,7 @@ import { BiCaretDown } from "react-icons/bi";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../../type";
+import { spawn } from "child_process";
 
 const Header = () => {
   const { productData, favouriteData } = useSelector(
@@ -61,6 +62,7 @@ const Header = () => {
         <div className="text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
           <p>Marked</p>
           <p className="text-white font-bold">& Favourite</p>
+          {favouriteData.length > 0 && <span>{favouriteData.length}</span>}
         </div>
         {/* cart */}
         <Link
@@ -75,7 +77,7 @@ const Header = () => {
           />
           <p className="text-xs text-white font-bold mt-3">Cart</p>
           <span className="absolute top-2 left-[29px] text-amazon_yellow text-xs font-semibold">
-            0
+            {productData ? productData.length : 0}
           </span>
         </Link>
       </div>
