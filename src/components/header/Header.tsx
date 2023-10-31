@@ -59,10 +59,14 @@ const Header = () => {
           </p>
         </div>
         {/* favourite */}
-        <div className="text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
+        <div className="relative text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
           <p>Marked</p>
           <p className="text-white font-bold">& Favourite</p>
-          {favouriteData.length > 0 && <span>{favouriteData.length}</span>}
+          {favouriteData.length > 0 && (
+            <span className="absolute top-2 right-2 w-4 h-4 border border-gray-400 flex itrms-center justify-center text-xs text-amazon_yellow">
+              {favouriteData.length}
+            </span>
+          )}
         </div>
         {/* cart */}
         <Link
