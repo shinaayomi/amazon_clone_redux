@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../type";
-import CardProduct from "@/components/CardProduct";
+import ResetCart from "@/components/ResetCart";
+import CartProduct from "@/components/CartProduct";
+import Link from "next/link";
 
 export default function CartPage() {
   const { productData } = useSelector((state: StateProps) => state.next);
@@ -15,25 +17,27 @@ export default function CartPage() {
               <p className="text-2xl text-amazon_blue font-semibold">
                 Shopping Cart
               </p>
-              <p className="text-2xl text-amazon_blue font-semibold">
-                Subtitle
-              </p>
             </div>
-            <div>
+            <div className="pt-2 flex flex-col gap-2">
               {productData.map((item: StateProps) => (
                 <div key={item._id}>
-                  <p>
-                    <CardProduct item={item} />
-                  </p>
+                  <div>
+                    <CartProduct item={item} />
+                  </div>
                 </div>
               ))}
+              <ResetCart />
             </div>
           </div>
         </>
       ) : (
-        <div>
-          <h1>Your cart is empty!</h1>
-          <button>Go to shopping</button>
+        <div className="bg-white h-64 col-span-5 flex flex-col items-center justify-center py-5 rounded-lg shadow-lg">
+          <h1 className="text-lg font-medium">Your cart is empty!</h1>
+          <Link href={"/"} passHref>
+            <button className="w-52 h-10 bg-amazon_blue text-white rounded-lg text-sm font-semibold hover:bg-amazon_yellow hover:text-black">
+              Go to shopping
+            </button>
+          </Link>
         </div>
       )}
     </section>

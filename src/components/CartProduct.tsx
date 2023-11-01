@@ -27,10 +27,10 @@ interface cartProductsProps {
   item: item;
 }
 
-const CardProduct = ({ item }: cartProductsProps) => {
+const CartProduct = ({ item }: cartProductsProps) => {
   const dispatch = useDispatch();
   return (
-    <div className="bg-gray-100 rounded-lg flex items-center gap-4 mt-2">
+    <div className="bg-gray-100 rounded-lg flex items-center gap-4">
       <Image
         className="object-cover"
         src={item.image}
@@ -111,4 +111,4 @@ const CardProduct = ({ item }: cartProductsProps) => {
   );
 };
 
-export default CardProduct;
+export default CartProduct;
