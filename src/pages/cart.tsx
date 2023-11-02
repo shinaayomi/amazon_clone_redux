@@ -4,6 +4,7 @@ import { StateProps } from "../../type";
 import ResetCart from "@/components/ResetCart";
 import CartProduct from "@/components/CartProduct";
 import Link from "next/link";
+import CartPayment from "@/components/CartPayment";
 
 export default function CartPage() {
   const { productData } = useSelector((state: StateProps) => state.next);
@@ -13,10 +14,11 @@ export default function CartPage() {
       {productData.length > 0 ? (
         <>
           <div className="bg-white col-span-4 p-4 rounded-lg">
-            <div className="flex- items-center justify-between border-b border-gray-400 pb-1">
+            <div className="flex items-center justify-between border-b border-gray-400 pb-1">
               <p className="text-2xl text-amazon_blue font-semibold">
                 Shopping Cart
               </p>
+              <p className="text-lg text-amazon_blue font-semibold">Subtitle</p>
             </div>
             <div className="pt-2 flex flex-col gap-2">
               {productData.map((item: StateProps) => (
@@ -28,6 +30,9 @@ export default function CartPage() {
               ))}
               <ResetCart />
             </div>
+          </div>
+          <div className="bg-white h-64 col-span-1 p-4 rounded-lg flex items-center justify-center">
+            <CartPayment />
           </div>
         </>
       ) : (
