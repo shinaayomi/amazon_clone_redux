@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StateProps } from "../../type";
+import { StateProps, StoreProducts } from "../../type";
 import ResetCart from "@/components/ResetCart";
 import CartProduct from "@/components/CartProduct";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function CartPage() {
               <p className="text-lg text-amazon_blue font-semibold">Subtitle</p>
             </div>
             <div className="pt-2 flex flex-col gap-2">
-              {productData.map((item: StateProps) => (
+              {productData.map((item: StoreProducts) => (
                 <div key={item._id}>
                   <div>
                     <CartProduct item={item} />
