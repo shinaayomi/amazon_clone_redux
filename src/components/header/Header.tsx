@@ -67,17 +67,17 @@ const Header = () => {
         </div>
         {/* signin */}
         {userInfo ? (
-          <div className="flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
+          <div className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
             <Image
               src={userInfo.image}
               alt="user image"
               className="w-8 h-8 rounded-full object-cover"
-              width={32}
+              width={38}
               height={32}
               priority
             />
-            <div className="text-xs text-gray-100">
-              <p>{userInfo.name}</p>
+            <div className="text-xs text-gray-100 flex flex-col justify-between">
+              <p className="text-white font-bold">{userInfo.name}</p>
               <p>{userInfo.email}</p>
             </div>
           </div>
