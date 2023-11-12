@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SiMediamarkt } from "react-icons/si";
 import FormattedPrice from "./Formattedprice";
 import { useDispatch, useSelector } from "react-redux";
-import { StateProps } from "../../type";
+import { StateProps, StoreProducts } from "../../type";
 
 const CartPayment = () => {
-  const { productData } = useSelector((state: StateProps) => state.next);
+  const { productData, userInfo } = useSelector(
+    (state: StateProps) => state.next
+  );
   const [totalAmount, setTotalAmount] = useState(0);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    let amt = 0;
+    productData.map((item: StoreProducts) => {
+      amt += item.price * item.quantity;
+      return;
+    });
+    setTotalAmount(amt);
+  }, [productData]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -26,14 +37,22 @@ const CartPayment = () => {
           <FormattedPrice amount={totalAmount} />
         </span>
       </p>
-      <div className="flex flex-col items-center">
-        <button className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed ">
-          Proceed to Buy
-        </button>
-        <p className="text-sm mt-1 text-red-500 font-semibold animate-bounce">
-          Please login to continue
-        </p>
-      </div>
+      {userInfo ? (
+        <div className="flex flex-col items-center">
+          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg">
+            Proceed to Buy
+          </button>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center">
+          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed ">
+            Proceed to Buy
+          </button>
+          <p className="text-sm mt-1 text-red-500 font-semibold animate-bounce">
+            Please login to continue
+          </p>
+        </div>
+      )}
     </div>
   );
 };
