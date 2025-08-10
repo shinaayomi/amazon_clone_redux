@@ -40,7 +40,6 @@ const CartPayment = () => {
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
     const checkoutSession = response.json();
-    console.log("--", checkoutSession.id);
 
     // Redirecting User/Customer to Stripe Checkout
     const result: any = await stripe?.redirectToCheckout({
