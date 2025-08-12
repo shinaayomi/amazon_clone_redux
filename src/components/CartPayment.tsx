@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SiMediamarkt } from "react-icons/si";
 import FormattedPrice from "./Formattedprice";
 import { loadStripe } from "@stripe/stripe-js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { StateProps, StoreProducts } from "../../type";
 import { useSession } from "next-auth/react";
 
@@ -11,7 +11,6 @@ const CartPayment = () => {
     (state: StateProps) => state.next
   );
   const [totalAmount, setTotalAmount] = useState(0);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     let amt = 0;
@@ -39,7 +38,7 @@ const CartPayment = () => {
       },
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
-    const checkoutSession = response.json();
+    const checkoutSession = await response.json();
 
     // Redirecting User/Customer to Stripe Checkout
     const result: any = await stripe?.redirectToCheckout({
