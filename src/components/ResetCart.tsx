@@ -1,5 +1,4 @@
 import { resetCart } from "@/store/nextSlice";
-import React from "react";
 import { useDispatch } from "react-redux";
 
 const ResetCart = () => {
