@@ -10,11 +10,12 @@ const Footer = () => {
         All right reserved{" "}
         <a
           className="hover:text-white hover:underline decoration-[1px] cursor-pointer duration-300"
-          href="https:/reactbd.com"
+          // href="https://reactbd.com"
+          href="https://shinaayomi.github.io/portfolio-html-css-js/"
           target="_blank"
           rel="nofollow"
         >
-          @reactbd.com
+          @shinaayomi
         </a>
       </p>
     </div>

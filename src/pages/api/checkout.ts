@@ -23,8 +23,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
     line_items: modifiedItems,
     mode: "payment",
-    success_url: `${process.env.NEXTAUTH_URL}/success`,
-    cancel_url: `${process.env.NEXTAUTH_URL}/checkout`,
+    success_url: `${process.env.NEXTAUTH_URL}/success` || "https://amazon-first-clone-me.netlify.app/success",
+    cancel_url: `${process.env.NEXTAUTH_URL}/checkout` || "https://amazon-first-clone-me.netlify.app/checkout",
     metadata: {
       email,
       images: JSON.stringify(items.map((item: any)=> item.image)),

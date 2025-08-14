@@ -1,4 +1,4 @@
-import { Store, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { StoreProducts } from "../../type";
 
 interface NextState {
@@ -61,8 +61,16 @@ export const nextSlice = createSlice({
         (item) => item._id !== action.payload
       );
     },
+    deleteFavourite: (state, action) => {
+      state.favouriteData = state.favouriteData.filter(
+        (item) => item._id !== action.payload
+      );
+    },
     resetCart: (state) => {
       state.productData = [];
+    },
+    resetFavouriteData: (state) => {
+      state.favouriteData = [];
     },
     addUser: (state, action) => {
       state.userInfo = action.payload;
@@ -82,7 +90,9 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   deleteProduct,
+  deleteFavourite,
   resetCart,
+  resetFavouriteData,
   addUser,
   removeUser,
   setAllProducts,

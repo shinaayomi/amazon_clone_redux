@@ -43,7 +43,6 @@ const Products = ({ productData }: any) => {
                     isNew: isNew,
                     oldPrice: oldPrice,
                     price: price,
-                    quantity: 1,
                   },
                 }}
               >
